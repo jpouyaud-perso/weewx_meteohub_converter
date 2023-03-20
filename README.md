@@ -29,3 +29,8 @@ At the end the intervals are written to the output file in CSV format. You can i
 
 ## History
 - Added input file sorting 
+- fork
+- corrected rain0 cumulative calcul
+- added TempMin and TempMax per interval
+- removed UV and solar things
+- managed the case some sample are missing to avoid to feed Meteotemplate DB with Null value which break some BLock/plugin
