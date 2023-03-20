@@ -1,5 +1,8 @@
 from weewx_meteohub.sensor import Sensor
+from datetime import datetime
+from dateutil import tz
 import datetime
+import pytz
 import csv
 import operator
 import tempfile
@@ -99,8 +102,15 @@ class Importer:
         to an integer
         Rain is returned as a sum
         """
+        from_zone = tz.gettz('UTC')
+        #here timezone is Europe/paris , set your Meteotemplate time zone here
+        to_zone = tz.gettz('Europe/Paris')
 
+        #my_datetime_cet = my_datetime.astimezone(pytz.timezone('Europe/Berlin')).strftime('%Y-%m-%d %H:%M:%S %Z%z')
+        time = time.replace(tzinfo=from_zone)
+        time = time.astimezone(to_zone)
         time = time.strftime("%Y-%m-%d %H:%M")
+        #time = time.astimezone(pytz.timezone('Europe/Paris')).strftime("%Y-%m-%d %H:%M %Z%z")
         csv_data = {}
         csv_data["date_time"] = time
         csv_data["temp"] = thd[0]
