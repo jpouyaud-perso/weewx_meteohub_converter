@@ -31,3 +31,5 @@ the script is also removing incomplete raw/sample per 5 mn interval (important f
 - added TempMin and TempMax per interval
 - removed UV and solar things
 - managed the case some sample are missing to avoid to feed Meteotemplate DB with Null value which break some BLock/plugin
+
+You will need Python3 and some dependency to be installed via PIP
